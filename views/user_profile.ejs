@@ -1,4 +1,24 @@
  <link rel="stylesheet" href="/css/user_profile.css">
  <h1>
         Profile Page
-    </h1>
+</h1>
+
+<p>
+    <%= profile_user.name %>
+</p>
+
+<p>
+    <%= profile_user.email %>
+</p>
+
+ <% if(user.id == profile_user.id){ %>
+    <form action="/users/update/<%= profile_user.id %>" method="POST">
+        <input type="password" name="old_password" placeholder="Old Password">
+        <input type="password" name="new_password" placeholder="New Password">
+        <input type="password" name="confirm_new_password" placeholder="Confirm New Password">
+        <input type="submit" value="Update Password">
+
+    </form>
+<% } else {%>
+    <!-- Else show only profile info -->
+<% } %> 
