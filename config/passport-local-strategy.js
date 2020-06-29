@@ -1,6 +1,6 @@
 const passport = require('passport');
 const User = require('../models/user');
-
+const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Authentication using passport .
@@ -15,7 +15,9 @@ passport.use(new LocalStrategy({
                req.flash('error', err);
                 return done(err);
             }
-            if(!user || user.password != password){
+            console.log(password);
+            console.log(user.password);
+            if(!user || !bcrypt.compare(password, user.password)){
                 req.flash('error','Invalid Username/Password');
                 return done(null, false);
             }

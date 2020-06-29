@@ -14,8 +14,6 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
-//Library for hashing the passwords
-// const bcrypt = require('bcrypt');
 
 
 app.use(express.urlencoded());
