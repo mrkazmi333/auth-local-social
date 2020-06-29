@@ -1,7 +1,5 @@
 <header>
-    Page Header
-
-    <ul>
+    <ul id="header-container">
         <% if(locals.user) { %>
             <li>
                 <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
